@@ -1,5 +1,4 @@
 const { User } = require('../models/')
-const passport = require('../config/passport')
 
 const getAll = () => {
     return User.findAll()
@@ -23,9 +22,9 @@ const getUserByEmail = (email) => {
 
 const register = (email, password, first_name=null, is_active=true) => {
     return User.create({
-        id: 2,
+        id: 6,
         email: email,
-        passport: passport, 
+        password: password, 
         first_name: first_name,
         is_active: is_active
     })

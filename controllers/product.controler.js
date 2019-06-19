@@ -1,4 +1,4 @@
-const product = require('../services/product.service')
+const product = require('../services/product.service');
 
 const getAll = async (req, res, next) => {
     product.getAll()
@@ -21,8 +21,8 @@ const getOne = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    let { title, price, description, quantity, userId} = req.body
-    product.create(title, price, description, quantity, userId)
+    let { title, price, description, quantity} = req.body
+    product.create(title, price, description, quantity, req.user)
         .then(product => {
             return res.json(product)
         })
