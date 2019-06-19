@@ -52,10 +52,6 @@ const createUser = async (req, res, next) => {
     }
 }
 
-const test = async (req, res, next) => {
-    res.status(status=200);
-}
-
 module.exports = {
     loginUser,
     createUser,
