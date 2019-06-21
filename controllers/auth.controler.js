@@ -3,26 +3,29 @@ const User = require('../services/user.service');
 
 const validators = require('../helpers/validators')
 
+// rewrite this func
 const tokenVerify = (req, res) => {
     const bearerHeader = req.headers['authorization'];
     if(typeof bearerHeader !== 'undefined') {
-        const bearer = bearerHeader.split(' ');
-        req.token = bearer[1];
+        const [, token] = bearerHeader.split(' ');
+        req.token = token;
         next();
     } else {
         res.sendStatus(403);
     }
 }
 
-const loginUser = async (req, res) => {
-    let user = await User.getUserByEmail(req.body['email'])
-    user = user.dataValues.id
-    const token = TokenJWT.getToken(user.id);
+// rewrite this func
+const loginUser = async (req, res) => {  // rewret
+    const { id } = await User.getUserByEmail(req.body['email'])
+    // user = user.dataValues.id
+    // const token = TokenJWT.getToken(id);
     return res.json({
-        'token': token
+        token: TokenJWT.getToken(id),
     })
 }
 
+// rewrite this fucking func
 const createUser = async (req, res, next) => {
     let { email, password, first_name } = req.body
     if (!validators.userRegisterDataValidation){
@@ -35,6 +38,7 @@ const createUser = async (req, res, next) => {
                         'error': 'This user already exist'
                     })
                 } else {
+                    // rewrite it by primises
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(password, salt, (err, hash) => {
                             if (err) throw err;
@@ -56,5 +60,5 @@ module.exports = {
     loginUser,
     createUser,
     tokenVerify,
-    test
+    test   ///// ?????????????????
 }

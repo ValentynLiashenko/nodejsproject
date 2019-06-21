@@ -1,6 +1,7 @@
 const user = require('../services/user.service');
 const bcrypt = require('bcryptjs');
 
+// rewrite this func
 getAll = async (req, res, next) => {
     user.getAll()
         .then(users => {
@@ -11,6 +12,7 @@ getAll = async (req, res, next) => {
         })
 }
 
+// rewrite this func
 const getOne = async (req, res, next) => {
     user.getOne(req.user)
         .then(user => {

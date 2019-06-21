@@ -1,4 +1,4 @@
-const Sequalize = require('sequelize');
+const Sequalize = require('sequelize');// fixe Sequalize -> Sequelize
 const db = require('../../database/config');
 
 const Product = db.define('category', {

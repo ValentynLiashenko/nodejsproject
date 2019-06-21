@@ -1,5 +1,7 @@
 const User = require('../services/user.service');
 
+// rewrite using findOrCreate
+
 const GetOrCreate = async (email, name) => {
     let user = await User.getUserByEmail(userEmail);
     if (!user){

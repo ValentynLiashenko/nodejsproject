@@ -4,6 +4,8 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const TokenJWT = require('../helpers/createJWT');
 const UserHelpersMethods = require('../helpers/user.methods');
 
+// rewrite this file !!!!!!!!!!!!!!!!!
+
 //Google Keys
 const client_secret = '7_wtnDz1I916VlBHt7wB97jc';
 const client_id = '173427760327-0e7el3vsgahbut9jbil70akevnc0m2s8.apps.googleusercontent.com';

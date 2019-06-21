@@ -1,5 +1,6 @@
 const product = require('../services/product.service');
 
+// rewrite this func
 const getAll = async (req, res, next) => {
     product.getAll()
         .then(products => {
@@ -10,6 +11,7 @@ const getAll = async (req, res, next) => {
         })
 }
 
+// rewrite this func
 const getOne = async (req, res, next) => {
     product.getOne(req.params.id)
         .then(product => {
@@ -20,6 +22,7 @@ const getOne = async (req, res, next) => {
         })
 }
 
+// rewrite this func
 const create = async (req, res, next) => {
     let { title, price, description, quantity} = req.body
     product.create(title, price, description, quantity, req.user)
@@ -31,6 +34,7 @@ const create = async (req, res, next) => {
         })
 }
 
+// rewrite this func
 const deleteOne = async (req, res, next) => {
     product.deleteOne(req.params.id)
         .then(product => {
@@ -41,6 +45,7 @@ const deleteOne = async (req, res, next) => {
         })
 }
 
+// rewrite this func
 const updateOne = async (req, res, next) => {
     let { id, title, price, description, quantity} = req.body
     product.updateOne(id, title, price, description, quantity)

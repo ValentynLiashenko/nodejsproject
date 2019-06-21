@@ -1,4 +1,6 @@
 
+/// use sequelize validation in models
+
 const userRegisterDataValidation = (email, password, password2, first_name) => {
     if(!email){
         return res.json({

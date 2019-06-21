@@ -3,6 +3,8 @@ const FacebookStrategy = require('passport-facebook').Strategy
 const TokenJWT = require('../helpers/createJWT');
 const UserHelpersMethods = require('../helpers/user.methods');
 
+// rewrite this file
+
 //Facebook Keys
 const client_id = '301068817482596';
 const client_secret = '38e9c73ca4887601818eae514f8388b3';

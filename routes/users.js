@@ -34,6 +34,8 @@ router.post('/', authController.createUser);
 router.post('/login', authController.loginUser);
 
 
-
+// use equal type of quotes 
+// delete blank lines 
+// fixed tabs
 
 module.exports = router

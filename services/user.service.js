@@ -1,4 +1,4 @@
-const { User } = require('../models/')
+const { User } = require('../models/')  // use es6
 
 const getAll = () => {
     return User.findAll()
@@ -7,29 +7,28 @@ const getAll = () => {
 const getOne = (id) => {
     return User.findOne({
         where: {
-            id: id
+            id
         }
     })
 }
 
-const getUserByEmail = (email) => {
-    return User.findOne({
-        where: {
-            email: email
-        }
-    })
-}
+const getUserByEmail = email => User.findOne({
+    where: {
+        email
+    }
+}) // rewrite all like this
 
-const register = (email, password, first_name=null, is_active=true) => {
+const register = (email, password, first_name = null, is_active = true) => {
     return User.create({
-        id: 6,
+        id: 6,    //  ??????????
         email: email,
-        password: password, 
+        password: password,
         first_name: first_name,
         is_active: is_active
     })
 }
 
+// user hooks in sequelize for converting snakecase to camelcase
 
 
 
@@ -37,6 +36,6 @@ const register = (email, password, first_name=null, is_active=true) => {
 module.exports = {
     getAll,
     getOne,
-    register, 
+    register,
     getUserByEmail
 }
