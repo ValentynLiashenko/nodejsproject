@@ -20,14 +20,20 @@ const getUserByEmail = (email) => {
     })
 }
 
-const register = (email, password, first_name=null, is_active=true) => {
-    return User.create({
-        id: 6,
+const register = (email, password, first_name=null, last_name=null, is_active=true) => {
+    console.log(email, password, first_name, last_name, is_active)
+    try{
+
+    User.create({
         email: email,
         password: password, 
         first_name: first_name,
+        last_name: last_name,
         is_active: is_active
     })
+    } catch (error) {
+        console.log(error)
+    }
 }
 
 

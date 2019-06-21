@@ -21,8 +21,11 @@ const getOne = async (req, res, next) => {
 }
 
 const create = async (req, res, next) => {
-    let { title, price, description, quantity} = req.body
-    product.create(title, price, description, quantity, req.user)
+    let { title, price, description, quantity, category} = req.body
+    if (!category) {
+        cutegory = null
+    }
+    product.create(title, price, description, quantity, category, req.user)
         .then(product => {
             return res.json(product)
         })
@@ -42,8 +45,11 @@ const deleteOne = async (req, res, next) => {
 }
 
 const updateOne = async (req, res, next) => {
-    let { id, title, price, description, quantity} = req.body
-    product.updateOne(id, title, price, description, quantity)
+    let { id, title, price, description, quantity, category} = req.body
+    if (!category) {
+        category = null;
+    }
+    product.updateOne(id, title, price, description, quantity, category)
         .then(product => {
             return res.json(product)
         })

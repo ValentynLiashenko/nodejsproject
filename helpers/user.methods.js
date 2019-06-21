@@ -1,9 +1,9 @@
 const User = require('../services/user.service');
 
-const GetOrCreate = async (email, name) => {
-    let user = await User.getUserByEmail(userEmail);
+const GetOrCreate = async (email, first_name, last_name) => {
+    let user = await User.getUserByEmail(email);
     if (!user){
-        user = await User.register(userEmail, 123123, name);
+        user = await User.register(email, 123123, first_name, last_name);
     }
     return user
 }

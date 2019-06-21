@@ -12,6 +12,7 @@ app.use(bodyParser.json())
 
 app.use('/users', require('./routes/users'));
 app.use('/product', require('./routes/product'));
+app.use('/auth', require('./routes/auth'));
 
 require('./google/index');
 require('./facebook/index');

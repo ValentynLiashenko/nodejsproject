@@ -1,7 +1,7 @@
 const Sequalize = require('sequelize');
 const db = require('../../database/config');
 
-const Product = db.define('category', {
+const Product = db.define('categories', {
     title:{
         type: Sequalize.STRING
     },

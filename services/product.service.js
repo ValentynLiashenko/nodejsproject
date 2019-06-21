@@ -11,12 +11,13 @@ const getOne = (id) => {
     })
 }
 
-const create = (title, price, description, quantity, userId) => {
+const create = (title, price, description, quantity, category, userId) => {
     return Product.create({
         title: title,
         price: price,
         description: description,
         quantity: quantity,
+        category: category,
         userId: userId
     })
 }
@@ -29,12 +30,13 @@ const deleteOne = (id) => {
     })
 }
 
-const updateOne = (id, title=null, price=null, description=null, quantity=null) => {
+const updateOne = (id, title=null, price=null, description=null, quantity=null, category=null) => {
     return Product.update({
         title: title,
         price: price,
         description: description,
-        quantity: quantity
+        quantity: quantity,
+        category: category
     }, 
     {
         where: {

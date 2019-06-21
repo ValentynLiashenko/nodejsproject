@@ -2,10 +2,6 @@ const Sequalize = require('sequelize');
 const db = require('../../database/config');
 
 const User = db.define('users', {
-    id: {
-        type: Sequalize.INTEGER,
-        primaryKey: true
-    },
     email:{
         type: Sequalize.STRING
     },
@@ -16,7 +12,10 @@ const User = db.define('users', {
         type: Sequalize.BOOLEAN
     },
     first_name: {
-        type: Sequalize.INTEGER
+        type: Sequalize.STRING
+    },
+    last_name: {
+        type: Sequalize.STRING
     }
 });
 

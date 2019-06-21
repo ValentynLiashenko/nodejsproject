@@ -24,7 +24,7 @@ const loginUser = async (req, res) => {
 }
 
 const createUser = async (req, res, next) => {
-    let { email, password, first_name } = req.body
+    let { email, password, first_name, last_name } = req.body
     if (!validators.userRegisterDataValidation){
         return res.send(status=400)
     } else {
@@ -38,7 +38,7 @@ const createUser = async (req, res, next) => {
                     bcrypt.genSalt(10, (err, salt) => {
                         bcrypt.hash(password, salt, (err, hash) => {
                             if (err) throw err;
-                            user.register(email, hash, first_name)
+                            user.register(email, hash, first_name, last_name)
                                 .then(user => {
                                     return res.json(user)
                                 })
@@ -55,6 +55,5 @@ const createUser = async (req, res, next) => {
 module.exports = {
     loginUser,
     createUser,
-    tokenVerify,
-    test
+    tokenVerify
 }
