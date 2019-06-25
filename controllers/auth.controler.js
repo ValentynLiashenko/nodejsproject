@@ -3,23 +3,9 @@ const User = require('../services/user.service');
 
 const validators = require('../helpers/validators')
 
-// rewrite this func
-const tokenVerify = (req, res) => {
-    const bearerHeader = req.headers['authorization'];
-    if(typeof bearerHeader !== 'undefined') {
-        const [, token] = bearerHeader.split(' ');
-        req.token = token;
-        next();
-    } else {
-        res.sendStatus(403);
-    }
-}
 
-// rewrite this func
-const loginUser = async (req, res) => {  // rewret
+const loginUser = async (req, res) => { 
     const { id } = await User.getUserByEmail(req.body['email'])
-    // user = user.dataValues.id
-    // const token = TokenJWT.getToken(id);
     return res.json({
         token: TokenJWT.getToken(id),
     })
@@ -58,7 +44,5 @@ const createUser = async (req, res, next) => {
 
 module.exports = {
     loginUser,
-    createUser,
-    tokenVerify,
-    test   ///// ?????????????????
+    createUser
 }

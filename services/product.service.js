@@ -1,4 +1,5 @@
-const { Product } = require('../models/')
+import { Product } from '../models/';
+
 const getAll = () => {
     return Product.findAll()
 }
@@ -6,17 +7,17 @@ const getAll = () => {
 const getOne = (id) => {
     return Product.findOne({
         where: {
-            id: id
+            id
         }
     })
 }
 
-const create = (title, price, description, quantity, userId) => {
+const create = (data, userId) => {
     return Product.create({
-        title: title,
-        price: price,
-        description: description,
-        quantity: quantity,
+        title: data.title,
+        price: data.price,
+        description: data.description,
+        quantity: data.quantity,
         userId: userId
     })
 }
@@ -24,21 +25,21 @@ const create = (title, price, description, quantity, userId) => {
 const deleteOne = (id) => {
     return Product.destroy({
         where: {
-            id: id
+            id
         }
     })
 }
 
-const updateOne = (id, title=null, price=null, description=null, quantity=null) => {
+const updateOne = (data) => {
     return Product.update({
-        title: title,
-        price: price,
-        description: description,
-        quantity: quantity
+        title: data.title,
+        price: data.price,
+        description: data.description,
+        quantity: data.quantity
     }, 
     {
         where: {
-            id:id
+            id: data.id
         }
     })
 }

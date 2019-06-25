@@ -1,4 +1,4 @@
-const { User } = require('../models/')  // use es6
+import { User } from '../models/index';
 
 const getAll = () => {
     return User.findAll()
@@ -16,11 +16,10 @@ const getUserByEmail = email => User.findOne({
     where: {
         email
     }
-}) // rewrite all like this
+})
 
 const register = (email, password, first_name = null, is_active = true) => {
     return User.create({
-        id: 6,    //  ??????????
         email: email,
         password: password,
         first_name: first_name,

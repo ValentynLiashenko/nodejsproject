@@ -1,26 +1,21 @@
-const user = require('../services/user.service');
-const bcrypt = require('bcryptjs');
+import * as User from '../services/user.service';
 
-// rewrite this func
-getAll = async (req, res, next) => {
-    user.getAll()
-        .then(users => {
-            return res.json(users)
-        })
-        .catch(error => {
-            next(error)
-        })
+
+const getAll = async (req, res, next) => {
+    try {
+        return res.json(await User.getAll());
+    } catch(error) {
+        next(error);
+    }
 }
 
-// rewrite this func
+
 const getOne = async (req, res, next) => {
-    user.getOne(req.user)
-        .then(user => {
-            return res.json(user)
-        })
-        .catch(error => {
-            next(error)
-        })
+    try {
+        return res.json(await User.getOne(req.user));
+    } catch(error) {
+        next(error);
+    }
 }
 
 

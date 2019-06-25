@@ -1,6 +1,5 @@
 const jwt = require('jsonwebtoken');
 
-// this func was realized in another file
 const tokenVerify = (req, res, next) => {
     const bearerHeader = req.headers['authorization'];
     if (!bearerHeader) {
