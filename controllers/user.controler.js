@@ -1,4 +1,4 @@
-import * as User from '../services/user.service';
+const User = require('../services/user.service');
 
 
 const getAll = async (req, res, next) => {

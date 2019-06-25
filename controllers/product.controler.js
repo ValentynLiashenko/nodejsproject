@@ -1,4 +1,4 @@
-import Product from '../services/product.service';
+const Product = require('../services/product.service');
 
 
 const getAll = async (req, res, next) => {
